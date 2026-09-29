@@ -3,18 +3,18 @@ Horario limite de entrega para todos os dias: *23:99*
 
 ## Checkpoint 1: 30/09 (Quarta-feira)
 - Git inicial (Arthur): isso aqui.  
-- README basico (Arthur): criar o README.md com a explicacao inicial do projeto e como ele funciona.  
+- README basico (Arthur)
 - Definicao das funcoes (Todos): Cada um deve criar o seu arquivo .h dentro da pasta include com os nomes e parametros das funcoes que vai fazer. Precisamos ter pelo menos 10 funcoes no total.  
 
 **CIFRAS** - Gabrielle  
 - criar cesar  
 - desfazer cesar  
 - fazer vigenere  
-- desfazer vigenere  \
+- desfazer vigenere  
 
 **SENHAS** - Arthur  
 - gera senha forte  
-- analisa quao forte é a senha  \
+- analisa quao forte é a senha  
 
 **MUDANCA DE BASE** - Andre Henrique  
 - texto pra ASCII  
@@ -94,17 +94,17 @@ Os artefatos gerados na compilação (build/, .o, .a, .so e executáveis) são m
 
 A biblioteca conta com AAAAAAAA funções públicas em 4 módulos:  
 
-1. Cifras  
--   
+1. Cifras  (`include/AAAAAAAAA.h`)  
+-   AAAAAAAAA
 
-2. Senhas (`include/passwords.h`)  
--   
+2. Senhas (`include/senhas.h`)  
+-   AAAAAAAAA
 
-3. Conversão de Bases (`include/base_conv.h`)  
--   
+3. Conversão de Bases (`include/AAAAAAAAA.h`)  
+-   AAAAAAAAA
 
-4. Hashing (`include/hashing.h`)  
--   
+4. Hashing (`include/AAAAAAAAA.h`)  
+-   AAAAAAAAA
 
 
 ## Makefile
@@ -113,7 +113,7 @@ A compilação usa o Makefile:
 
 - `make`: Compila a biblioteca e a aplicação.
 - `make run`: Executa usando a biblioteca estática.
-- `make run-dynamic`: Executa usando a biblioteca dinâmica (.so).
+- `make run-dinamico`: Executa usando a biblioteca dinâmica.
 - `make test`: Executa os testes automatizados.
 - `make clean`: Limpa os arquivos compilados.
 - `make install`: Instala os arquivos da biblioteca.

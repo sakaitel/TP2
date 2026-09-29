@@ -83,8 +83,10 @@ TP2/
 │   └── AAAAAAAAA
 ├── app/                  
 │   └── main.c
-├── tests/                
-│   └── test_main.c
+├── testes/                
+│   └── testes_main.c
+├── build/              
+├── .gitignore        
 ├── Makefile              
 └── README.md             
 ```

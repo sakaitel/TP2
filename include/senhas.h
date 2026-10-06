@@ -9,6 +9,9 @@
  * @param senha Ponteiro onde a senha gerada sera gravada.
  * @param tamanho Tamanho desejado da senha (sem contar o '\0').
  * @return Ponteiro para a senha gerada, ou NULL em caso de erro.
+ * 
+ * @warning A funcao aloca memoria dinamicamente para a senha. E de total 
+ * responsabilidade do usuario liberar essa memoria chamando free()
  */
 char* gerar_senha(char *senha, int tamanho);
 
@@ -17,6 +20,9 @@ char* gerar_senha(char *senha, int tamanho);
  *
  * @param senha String da senha a ser analisada.
  * @return Pontuacao de 0 a 10 em caso de sucesso, ou -1 em caso de erro.
+ * 
+ * @warning A funcao aloca memoria dinamicamente para a senha. E de total 
+ * responsabilidade do usuario liberar essa memoria chamando free()
  */
 int analisar_forca_senha(char *senha);
 

@@ -4,58 +4,51 @@
 #include <stddef.h>
 
 /**
- * Converte uma cadeia de caracteres (texto) para a sua representacao em codigos ASCII decimais.
+ * Pega um texto normal e transforma nos codigos ASCII em decimal separados por espaco.
  *
- * @param senha String contendo o texto a ser convertido.
+ * @param senha Texto original pra converter.
+ * @return String alocada com os codigos numericos (lembrar de dar free depois).
  */
-void criptoTextoASCII(const char *senha);
+char* texto_para_ascii(char* senha);
 
 /**
- * Converte uma sequencia de codigos ASCII numericos separados por espaco de volta para texto.
+ * Pega os codigos ASCII em texto (tipo "65 66 67") e remonta a palavra original.
  *
- * @param senha String contendo os codigos ASCII decimais separados por espaco.
+ * @param senha String com os codigos ASCII separados por espaco.
+ * @return String com o texto original decodificado.
  */
-void criptoASCIITexto(char *senha);
+char* ascii_para_texto(char* senha);
 
 /**
- * Converte e imprime um numero inteiro decimal (base 10) em formato hexadecimal (base 16).
+ * Pega um numero decimal em texto e devolve em hexadecimal.
  *
- * @param senha Valor inteiro em base decimal a ser convertido.
+ * @param senha Numero em base 10 passado como string (ex: "255").
+ * @return String com o valor em hexadecimal (ex: "FF").
  */
-void b10b16(int senha);
+char* base10_para_base16(char* senha);
 
 /**
- * Converte uma string representativa de um valor hexadecimal (base 16) e imprime em decimal (base 10).
+ * Pega uma string em hexadecimal e converte pra decimal.
  *
- * @param senha String contendo o valor em hexadecimal.
+ * @param senha Texto em hexadecimal (ex: "1A" ou "ff").
+ * @return String com o valor correspondente em decimal (ex: "26").
  */
-void b16b10(const char *senha);
+char* base16_para_base10(char* senha);
 
 /**
- * Converte e imprime um numero inteiro decimal (base 10) na sua representacao binaria (base 2).
+ * Pega um numero decimal em texto e devolve os bits dele em binario.
  *
- * @param senha Valor inteiro em base decimal a ser convertido.
+ * @param senha Numero em base 10 passado como string (ex: "13").
+ * @return String com os bits em binario (ex: "1101").
  */
-void b10b2(int senha);
+char* base10_para_base2(char* senha);
 
 /**
- * Converte uma string de bits binarios (base 2) e imprime seu valor em decimal (base 10).
+ * Pega uma string de 0s e 1s e devolve o valor em decimal.
  *
- * @param senha String contendo a sequencia de 0s e 1s.
+ * @param senha Sequencia binaria (ex: "1101").
+ * @return String com o valor em base 10 (ex: "13").
  */
-void b2b10(const char *senha);
-
-/**
- * Exibe o menu interativo de escolhas e processa a operacao de conversao solicitada.
- *
- * @param CriptoDescripto Ponteiro para armazenar a opcao de criptografar (1) ou descriptografar (2).
- * @param tmb Ponteiro para armazenar a base escolhida (1 - ASCII, 2 - Base 16, 3 - Base 2).
- */
-void menu(int *CriptoDescripto, int *tmb);
-
-/**
- * Funcao principal do modulo de conversao de bases que inicializa e executa o fluxo do menu.
- */
-void funcBase(void);
+char* base2_para_base10(char* senha);
 
 #endif /* BASES_H */

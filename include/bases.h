@@ -6,6 +6,8 @@
 /**
  * Pega um texto normal e transforma nos codigos ASCII em decimal separados por espaco.
  *
+ * @warning Suporta apenas caracteres da tabela ASCII padrao (sem acentos ou caracteres especiais).
+ *
  * @param senha Texto original pra converter.
  * @return String alocada com os codigos numericos (lembrar de dar free depois).
  */
@@ -13,6 +15,8 @@ char* texto_para_ascii(char* senha);
 
 /**
  * Pega os codigos ASCII em texto (tipo "65 66 67") e remonta a palavra original.
+ *
+ * @warning Decodifica apenas codigos da tabela ASCII padrao (0 a 127).
  *
  * @param senha String com os codigos ASCII separados por espaco.
  * @return String com o texto original decodificado.

@@ -37,6 +37,6 @@ char* hash_djb2 (char *texto_original) {
         return NULL;
     }
     
-    snprintf(hash_hex, 9, "%08lx", hash);
+    snprintf(hash_hex, 9, "%08x", hash);
     return hash_hex;
 }

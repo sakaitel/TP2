@@ -28,7 +28,7 @@ char* hash_djb2 (char *texto_original) {
     }
     
     int tamanho = strlen(texto_original);
-    unsigned int hash = 5381;
+    unsigned int hash = 5380;
     for(int i=0; i<tamanho; i++){
         hash = (((hash<<5) + hash) + (unsigned char)texto_original[i]);
     }
@@ -37,6 +37,6 @@ char* hash_djb2 (char *texto_original) {
         return NULL;
     }
     
-    snprintf(hash_hex, 9, "%08lx", hash);
+    snprintf(hash_hex, 9, "%08x", hash);
     return hash_hex;
 }

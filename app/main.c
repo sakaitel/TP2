@@ -7,6 +7,15 @@
 #include "bases.h"
 #include "hash.h"
 
+int char_invalido(const char *str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if ((unsigned char)str[i] > 127) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void menu_cifras() {
     int opcao;
     char texto[256], chave[256];
@@ -27,6 +36,11 @@ void menu_cifras() {
     printf("Digite o texto: ");
     scanf(" %[^\n]", texto);
 
+    if (char_invalido(texto)) {
+        printf("\nErro: O texto contem caracteres acentuados ou especiais invalidos.\n");
+        return;
+    }
+
     switch (opcao) {
         case 1:
             printf("Digite o deslocamento numerico: ");
@@ -41,11 +55,19 @@ void menu_cifras() {
         case 3:
             printf("Digite a palavra-chave (sem espacos): ");
             scanf("%s", chave);
+            if (char_invalido(chave)) {
+                printf("\nErro: A chave contem caracteres acentuados.\n");
+                return;
+            }
             resultado = cifrar_vigenere(texto, chave, resultado);
             break;
         case 4:
             printf("Digite a palavra-chave (sem espacos): ");
             scanf("%s", chave);
+            if (char_invalido(chave)) {
+                printf("\nErro: A chave contem caracteres acentuados.\n");
+                return;
+            }
             resultado = decifrar_vigenere(texto, chave, resultado);
             break;
         default:
@@ -88,6 +110,10 @@ void menu_senhas() {
         case 2:
             printf("Digite a senha para analise: ");
             scanf(" %[^\n]", senha_input);
+            if (char_invalido(senha_input)) {
+                printf("\nErro: A senha contem caracteres acentuados.\n");
+                return;
+            }
             forca = analisar_forca_senha(senha_input);
             printf("\nPontuacao da senha (0 a 10): %d\n", forca);
             break;
@@ -118,6 +144,11 @@ void menu_bases() {
 
     printf("Digite a entrada: ");
     scanf(" %[^\n]", entrada);
+
+    if (char_invalido(entrada)) {
+        printf("\nErro: A entrada contem caracteres acentuados ou especiais invalidos.\n");
+        return;
+    }
 
     switch (opcao) {
         case 1:
@@ -167,6 +198,11 @@ void menu_hash() {
 
     printf("Digite a string para hashing: ");
     scanf(" %[^\n]", texto);
+
+    if (char_invalido(texto)) {
+        printf("\nErro: A string contem caracteres acentuados ou especiais invalidos.\n");
+        return;
+    }
 
     switch (opcao) {
         case 1:

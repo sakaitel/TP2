@@ -46,13 +46,17 @@ install: $(LIB_ESTAT) $(LIB_DINAM) $(HEADERS)
 	cp $(LIB_DINAM) $(INST_LIB)/
 	cp $(HEADERS) $(INST_INC)/
 
-$(TARGET_ESTAT): $(MAIN) $(LIB_ESTAT) $(HEADERS) 
-	mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) $(MAIN) -o $@ -Iinclude $(LIB_ESTAT)
+$(BUILD_DIR)/main.o: $(MAIN) $(HEADERS)
+	mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(TARGET_DINAM): $(MAIN) $(LIB_DINAM) $(HEADERS) 
+$(TARGET_ESTAT): $(BUILD_DIR)/main.o $(LIB_ESTAT)
 	mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) $(MAIN) -o $@ -Iinclude -L$(LIB_DIR) -l$(LIB_NAME) -Wl,-rpath,'$$ORIGIN/../$(LIB_DIR)'
+	$(CC) $(CFLAGS) $< $(LIB_ESTAT) -o $@
+
+$(TARGET_DINAM): $(BUILD_DIR)/main.o $(LIB_DINAM)
+	mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@ -L$(LIB_DIR) -l$(LIB_NAME) -Wl,-rpath,'$$ORIGIN/../$(LIB_DIR)'
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c 
 	mkdir -p $(BUILD_DIR)

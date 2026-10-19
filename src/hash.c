@@ -28,7 +28,7 @@ char* hash_djb2 (char *texto_original) {
     }
     
     int tamanho = strlen(texto_original);
-    unsigned int hash = 5380;
+    unsigned int hash = 5381;
     for(int i=0; i<tamanho; i++){
         hash = (((hash<<5) + hash) + (unsigned char)texto_original[i]);
     }
